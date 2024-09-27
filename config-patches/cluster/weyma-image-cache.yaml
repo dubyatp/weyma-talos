@@ -1,0 +1,19 @@
+# Image repos for major dependencies are cached on local containers for black-start readiness
+machine:
+  registries:
+    mirrors:
+      docker.io:
+        endpoints:
+          - http://10.105.6.215:6000
+      gcr.io:
+        endpoints:
+          - http://10.105.6.215:6002
+      ghcr.io:
+        endpoints:
+          - http://10.105.6.215:6003
+      registry.k8s.io:
+        endpoints:
+          - http://10.105.6.215:6001
+      factory.talos.dev:
+        endpoints:
+          - http://10.105.6.215:6004

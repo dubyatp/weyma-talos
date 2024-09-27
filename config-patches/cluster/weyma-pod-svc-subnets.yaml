@@ -1,0 +1,7 @@
+# Since weyma's internal subnet conflicts with the default Talos service subnet, we're going to use the next available /12
+cluster:
+  network:
+    podSubnets:
+      - 10.244.0.0/16
+    serviceSubnets:
+      - 10.112.0.0/12

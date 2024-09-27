@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  discovery:
+    restart: unless-stopped
+    image: ghcr.io/siderolabs/discovery-service:v1.0.5
+    ports:
+      - 10.105.6.215:3000:3000
+      - 10.105.6.215:3001:3001

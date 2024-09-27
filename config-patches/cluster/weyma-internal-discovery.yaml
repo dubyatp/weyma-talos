@@ -1,0 +1,9 @@
+# Internal Talos discovery server for black-start readiness
+cluster:
+    discovery:
+        enabled: true # Enable the cluster membership discovery feature.
+        # Configure registries used for cluster member discovery.
+        registries:
+            # Service registry is using an external service to push and pull information about cluster members.
+            service:
+                endpoint: http://10.105.6.215:3000 # External service endpoint.
