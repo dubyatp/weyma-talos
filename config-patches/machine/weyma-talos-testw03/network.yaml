@@ -1,0 +1,11 @@
+machine:
+  network:
+    interfaces:
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:6c:aa:da"
+          driver: "virtio*"
+        dhcp: true
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:98:7a:86"
+          driver: "virtio*"
+        dhcp: true
