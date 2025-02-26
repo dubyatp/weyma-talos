@@ -4,21 +4,34 @@ metadata:
   name: weyma-bm-store
   namespace: rook-ceph
 spec:
-  metadataPool:
+  auth: {}
+  dataPool:
+    application: ''
+    erasureCoded:
+      codingChunks: 1
+      dataChunks: 2
     failureDomain: host
+    mirroring: {}
+    quotas: {}
+    replicated:
+      size: 0
+    statusCheck:
+      mirror: {}
+  gateway:
+    instances: 1
+    placement: {}
+    port: 80
+    resources: {}
+  healthCheck: {}
+  metadataPool:
+    application: ''
+    erasureCoded:
+      codingChunks: 0
+      dataChunks: 0
+    failureDomain: host
+    mirroring: {}
+    quotas: {}
     replicated:
       size: 3
-  dataPool:
-    failureDomain: host
-    erasureCoded:
-      dataChunks: 2
-      codingChunks: 1
-  preservePoolsOnDelete: true
-  gateway:
-    port: 80
-    # securePort: 443
-    instances: 1
-  healthCheck:
-    bucket:
-      disabled: false
-      interval: 60s
+    statusCheck:
+      mirror: {}
