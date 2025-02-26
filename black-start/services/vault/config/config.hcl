@@ -13,5 +13,5 @@ listener "tcp" {
   tls_key_file  = "/certs/server.key"
 }
 
-api_addr = "https://weyma-vault.infra.dubyatp.xyz:8200"
+api_addr = "https://api.weyma-vault.infra.dubyatp.xyz:8200"
 cluster_addr = "https://weyma-vault.infra.dubyatp.xyz:8200"
