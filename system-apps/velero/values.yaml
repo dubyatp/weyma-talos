@@ -4,7 +4,9 @@
 
 # Labels settings in namespace
 namespace:
-  labels: {}
+  labels:
+    - key: pod-security.kubernetes.io/enforce
+      value: privileged
     # Enforce Pod Security Standards with Namespace Labels
     # https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/
     # - key: pod-security.kubernetes.io/enforce
