@@ -1,4 +1,9 @@
 services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel run weyma-vault
+    env_file: ".env"
   vault:
     image: hashicorp/vault:1.18
     environment:
