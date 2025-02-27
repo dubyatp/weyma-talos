@@ -8,8 +8,8 @@ spec:
     vault:
       auth:
         userPass:
-          path: "userpass"
-          username: "weyma-talos"
+          path: userpass
+          username: weyma-talos
           secretRef:
             name: vault-login
             key: password
