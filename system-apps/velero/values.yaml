@@ -4,29 +4,29 @@ namespace:
     value: privileged
 configuration:
   backupStorageLocation:
-  - name: default
-    provider: velero.io/aws
-    bucket: weyma-talos-velero
-    default: true
-    credential:
-      name: weyma-truenas-s3-auth
-      key: credentials
-    config:
-      s3Url: "http://10.69.42.20:9000"
-      region: us-east-1
-      insecureSkipTLSVerify: "true"
+    - name: default
+      provider: velero.io/aws
+      bucket: weyma-talos-velero
+      default: true
+      credential:
+        name: weyma-truenas-s3-auth
+        key: credentials
+      config:
+        s3Url: "http://10.69.42.20:9000"
+        region: us-east-1
+        insecureSkipTLSVerify: "true"
   volumeSnapshotLocation:
-  - name: truenas-s3
-    provider: velero.io/aws
-    config:
-      region: us-east-1
+    - name: truenas-s3
+      provider: velero.io/aws
+      config:
+        region: us-east-1
 initContainers:
-- name: velero-plugin-for-aws
-  image: velero/velero-plugin-for-aws:v1.10.0
-  imagePullPolicy: IfNotPresent
-  volumeMounts:
-    - mountPath: /target
-      name: plugins
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.10.0
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
 deployNodeAgent: true
 extraObjects:
   - apiVersion: external-secrets.io/v1beta1
