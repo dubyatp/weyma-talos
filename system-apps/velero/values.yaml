@@ -16,7 +16,7 @@ configuration:
       region: us-east-1
       insecureSkipTLSVerify: "true"
   volumeSnapshotLocation:
-  - name: default
+  - name: truenas-s3
     provider: velero.io/aws
     config:
       region: us-east-1
