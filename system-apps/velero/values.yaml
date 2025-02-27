@@ -185,7 +185,7 @@ extraObjects:
   - apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
     metadata:
-      name: minio-credentials
+      name: weyma-truenas-s3-auth
       namespace: velero
     spec:
       refreshInterval: 1h
@@ -193,36 +193,13 @@ extraObjects:
         name: weyma-vault
         kind: ClusterSecretStore
       target:
-        name: minio-credentials
+        name: weyma-truenas-s3-auth
         creationPolicy: Owner
       data:
       - secretKey: credentials
         remoteRef:
           key: velero
           property: credentials
-  # - apiVersion: secrets-store.csi.x-k8s.io/v1
-  #   kind: SecretProviderClass
-  #   metadata:
-  #     name: velero-secrets-store
-  #   spec:
-  #     provider: aws
-  #     parameters:
-  #       objects: |
-  #         - objectName: "velero"
-  #           objectType: "secretsmanager"
-  #           jmesPath:
-  #               - path: "access_key"
-  #                 objectAlias: "access_key"
-  #               - path: "secret_key"
-  #                 objectAlias: "secret_key"
-  #     secretObjects:
-  #       - data:
-  #         - key: access_key
-  #           objectName: client-id
-  #         - key: client-secret
-  #           objectName: client-secret
-  #         secretName: velero-secrets-store
-  #         type: Opaque
 
 # Settings for Velero's prometheus metrics. Enabled by default.
 metrics:
@@ -354,7 +331,7 @@ configuration:
     accessMode: ReadWrite
     credential:
       # name of the secret used by this backupStorageLocation.
-      name: minio-credentials
+      name: weyma-truenas-s3-auth
       # name of key that contains the secret data to be used.
       key: credentials
     # Additional provider-specific configuration. See link above
@@ -380,6 +357,35 @@ configuration:
     #  insecureSkipTLSVerify:
 
     # annotations allows adding arbitrary annotations to this BackupStorageLocation resource. Optional.
+    annotations: {}
+
+  # Parameters for the VolumeSnapshotLocation(s). Configure multiple by adding other element(s) to the volumeSnapshotLocation slice.
+  # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
+  volumeSnapshotLocation:
+    # name is the name of the volume snapshot location where snapshots are being taken. Required.
+  - name: weyma-truenas
+    # provider is the name for the volume snapshot provider.
+    provider: velero.io/aws
+    credential:
+      # name of the secret used by this volumeSnapshotLocation.
+      name: weyma-truenas-s3-auth
+      # name of key that contains the secret data to be used.
+      key: credentials
+    # Additional provider-specific configuration. See link above
+    # for details of required/optional fields for your provider.
+    config:
+      region: us-east-1
+      
+  #    region:
+  #    apiTimeout:
+  #    resourceGroup:
+  #    The ID of the subscription where volume snapshots should be stored, if different from the cluster’s subscription. If specified, also requires `configuration.volumeSnapshotLocation.config.resourceGroup`to be set. (Azure only)
+  #    subscriptionId:
+  #    incremental:
+  #    snapshotLocation:
+  #    project:
+
+    # annotations allows adding arbitrary annotations to this VolumeSnapshotLocation resource. Optional.
     annotations: {}
 
   # These are server-level settings passed as CLI flags to the `velero server` command. Velero
