@@ -4,7 +4,7 @@ namespace:
     value: privileged
 configuration:
   backupStorageLocation:
-  - name: weyma-truenas-s3
+  - name: default
     provider: velero.io/aws
     bucket: weyma-talos-velero
     default: true
@@ -16,7 +16,7 @@ configuration:
       region: us-east-1
       insecureSkipTLSVerify: "true"
   volumeSnapshotLocation:
-  - name:
+  - name: default
     provider: velero.io/aws
     config:
       region: us-east-1
