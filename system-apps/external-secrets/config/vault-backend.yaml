@@ -2,18 +2,17 @@ apiVersion: external-secrets.io/v1beta1
 kind: ClusterSecretStore
 metadata:
   name: weyma-vault
-  namespace: external-secrets
 spec:
   provider:
     vault:
       auth:
         userPass:
-          path: userpass
-          username: weyma-talos
+          path: "userpass"
+          username: "weyma-talos"
           secretRef:
-            name: vault-login
-            key: password
+            name: "vault-login"
+            key: "password"
             namespace: external-secrets
-      path: kv-weyma-talos
-      server: https://weyma-vault.infra.dubyatp.xyz
+      path: "kv-weyma-talos"
+      server: "https://weyma-vault.infra.dubyatp.xyz"
       version: v2
