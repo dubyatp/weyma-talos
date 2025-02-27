@@ -13,6 +13,7 @@ spec:
           secretRef:
             name: vault-login
             key: password
+            namespace: external-secrets
       path: kv-weyma-talos
       server: https://weyma-vault.infra.dubyatp.xyz
       version: v2
