@@ -1,5 +1,5 @@
 backupsEnabled: true
-snapshotsEnabled: true
+snapshotsEnabled: false
 namespace:
   labels:
   - key: pod-security.kubernetes.io/enforce
@@ -15,13 +15,8 @@ configuration:
         key: credentials
       config:
         s3Url: "http://10.69.42.20:9000"
-        region: us-east-1
+        region: minio
         insecureSkipTLSVerify: "true"
-  volumeSnapshotLocation:
-    - name: truenas-s3
-      provider: velero.io/aws
-      config:
-        region: us-east-1
 initContainers:
   - name: velero-plugin-for-aws
     image: velero/velero-plugin-for-aws:v1.10.0
