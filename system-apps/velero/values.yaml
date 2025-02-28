@@ -1,3 +1,5 @@
+backupsEnabled: true
+snapshotsEnabled: true
 namespace:
   labels:
   - key: pod-security.kubernetes.io/enforce
