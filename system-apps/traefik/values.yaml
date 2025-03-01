@@ -29,7 +29,7 @@ traefik:
   experimental:
     plugins:
       cloudflarewarp:
-        modulename: github.com/BetterCorp/cloudflarewarp
+        moduleName: github.com/BetterCorp/cloudflarewarp
         version: v1.3.3
   extraObjects:
   - apiVersion: external-secrets.io/v1beta1
