@@ -1,5 +1,6 @@
 traefik:
   deployment:
+    replicas: 3
     additionalContainers:
     - name: cloudflared
       image: cloudflare/cloudflared:2025.2.1
