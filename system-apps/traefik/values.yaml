@@ -1,4 +1,8 @@
 traefik:
+  ports:
+    web:
+      redirections:
+        entryPoint: websecure
   deployment:
     replicas: 3
     additionalContainers:
