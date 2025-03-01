@@ -1,0 +1,58 @@
+traefik:
+  additionalContainers:
+  - name: cloudflared
+    image: cloudflare/cloudflared:2025.2.1
+    args: ["tunnel", "--config", "/etc/cloudflared/config/config.yml", "run"]
+    livenessProbe:
+      failureThreshold: 1
+      httpGet:
+        path: /ready
+        port: 2000
+        scheme: HTTP
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    volumeMounts:
+    - mountPath: /etc/cloudflared/config
+      name: cloudflared-config
+      readOnly: true
+    - mountPath: /etc/cloudflared/creds
+      name: cloudflared-creds
+      readOnly: true
+  additionalVolumes:
+  - name: cloudflared-config
+    configMap:
+      name: cloudflared-config
+  - name: cloudflared-creds
+    secret:
+      secretName: cloudflare-cred
+  extraObjects:
+  - apiVersion: external-secrets.io/v1beta1
+    kind: ExternalSecret
+    metadata:
+      name: cloudflare-cred
+    spec:
+      refreshInterval: 1h
+      secretStoreRef:
+        name: weyma-vault
+        kind: ClusterSecretStore
+      target:
+        name: cloudflare-cred
+        creationPolicy: Owner
+      data:
+      - secretKey: 7e903099-1fbe-48d1-93ac-0922859851a9.json
+        remoteRef:
+          key: traefik
+          property: cloudflare-token
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: cloudflared-config
+    data:
+      config.yml: |
+        tunnel: weyma-traefik2
+        metrics: 0.0.0.0:2000
+        no-autoupdate: true
+        credentials-file: /etc/cloudflared/creds/7e903099-1fbe-48d1-93ac-0922859851a9.json
+        loglevel: info
