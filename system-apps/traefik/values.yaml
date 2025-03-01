@@ -39,6 +39,19 @@ traefik:
       cloudflarewarp:
         moduleName: github.com/BetterCorp/cloudflarewarp
         version: v1.3.3
+  providers:
+    file:
+      enabled: true
+      watch: true
+      content: |
+        http:
+          middlewares:
+            cloudflarewarp:
+              plugin:
+                cloudflarewarp:
+                  disableDefault: false
+                  trustip:
+                    - 192.168.0.0/16
   extraObjects:
   - apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
