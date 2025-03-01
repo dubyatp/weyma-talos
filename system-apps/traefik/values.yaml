@@ -57,3 +57,9 @@ traefik:
         no-autoupdate: true
         credentials-file: /etc/cloudflared/creds/7e903099-1fbe-48d1-93ac-0922859851a9.json
         loglevel: info
+        ingress:
+        - hostname: weyma-traefikcf2.infra.dubyatp.xyz
+          service: https://traefik:443
+          originRequest:
+            noTLSVerify: true
+        - service: http_status:404
