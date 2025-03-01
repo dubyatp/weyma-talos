@@ -4,6 +4,8 @@ traefik:
       redirections:
         entryPoint:
           to: websecure
+          scheme: https
+          permanent: true
   deployment:
     replicas: 3
     additionalContainers:
