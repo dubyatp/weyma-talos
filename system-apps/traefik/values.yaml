@@ -26,6 +26,11 @@ traefik:
         periodSeconds: 10
         successThreshold: 1
         timeoutSeconds: 1
+  experimental:
+    plugins:
+      cloudflarewarp:
+        modulename: github.com/BetterCorp/cloudflarewarp
+        version: v1.3.3
   extraObjects:
   - apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
