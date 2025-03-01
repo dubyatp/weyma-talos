@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: frenworld-archive-io
+  namespace: cert-manager
+spec:
+  commonName: '*.frenworld-archive.io'
+  dnsNames:
+  - frenworld-archive.io
+  - '*.frenworld-archive.io'
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-frenworld-archive-io
+  secretName: cert-frenworld-archive-io
+  secretTemplate:
+    annotations:
+      replicator.v1.mittwald.de/replication-allowed: "true"
+      replicator.v1.mittwald.de/replication-allowed-namespaces: '*'

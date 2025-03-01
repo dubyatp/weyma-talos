@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: williamtpeebles-com
+  namespace: cert-manager
+spec:
+  commonName: '*.williamtpeebles.com'
+  dnsNames:
+  - williamtpeebles.com
+  - '*.williamtpeebles.com'
+  - '*.internal.williamtpeebles.com'
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-williamtpeebles-com
+  secretName: cert-williamtpeebles-com
+  secretTemplate:
+    annotations:
+      replicator.v1.mittwald.de/replication-allowed: "true"
+      replicator.v1.mittwald.de/replication-allowed-namespaces: '*'
