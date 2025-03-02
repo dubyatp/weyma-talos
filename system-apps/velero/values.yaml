@@ -36,6 +36,13 @@ velero:
       - mountPath: /target
         name: plugins
   deployNodeAgent: true
+  configMaps:
+    default-storageclass:
+      labels:
+        velero.io/plugin-config: ""
+        velero.io/change-storage-class: RestoreItemAction
+      data:
+        ceph-block: weyma-shared
   extraObjects:
   - apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
