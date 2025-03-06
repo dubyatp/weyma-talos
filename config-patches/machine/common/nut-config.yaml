@@ -3,6 +3,6 @@ kind: ExtensionServiceConfig
 name: nut-client
 configFiles:
   - content: |-
-        MONITOR 10.105.6.10 1 talos ${upsmonPass} secondary
+        MONITOR weyma-ups01@10.105.6.10 1 talos ${upsmonPass} slave
         SHUTDOWNCMD "/sbin/poweroff"
     mountPath: /usr/local/etc/nut/upsmon.conf
