@@ -25,7 +25,7 @@ velero:
         name: weyma-truenas-s3-auth
         key: credentials
       config:
-        s3Url: "http://10.69.42.20:9000"
+        s3Url: "http://10.105.15.20:9000"
         region: minio
         insecureSkipTLSVerify: "true"
   initContainers:
