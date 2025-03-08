@@ -13,5 +13,11 @@ listener "tcp" {
   tls_key_file  = "/certs/server.key"
 }
 
+seal "awskms" {
+  region = "us-east-1"
+  access_key = "AKIAS7LPFCPFUF4QKHPA"
+  kms_key_id = "ea99bc16-6e46-482c-9ee0-62db515c490c"
+}
+
 api_addr = "https://api.weyma-vault.infra.dubyatp.xyz:8200"
 cluster_addr = "https://weyma-vault.infra.dubyatp.xyz:8200"
