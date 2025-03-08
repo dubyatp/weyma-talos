@@ -6,6 +6,7 @@ services:
     env_file: ".env"
   vault:
     image: hashicorp/vault:1.18
+    env_file: ".env.vault"
     environment:
       VAULT_ADDR: "https://weyma-vault.infra.dubyatp.xyz:8200"
       VAULT_API_ADDR: "https://api.weyma-vault.infra.dubyatp.xyz:8200"
