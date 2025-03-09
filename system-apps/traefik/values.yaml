@@ -45,13 +45,12 @@ traefik:
           middlewares:
             cloudflarewarp:
               plugin:
-                cloudflarewarp:
-                  disableDefault: false
+                traefik-real-ip:
   experimental:
     plugins:
       cloudflarewarp:
-        moduleName: github.com/BetterCorp/cloudflarewarp
-        version: v1.3.3
+        moduleName: github.com/jramsgz/traefik-real-ip
+        version: v1.0.4
   extraObjects:
   - apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
