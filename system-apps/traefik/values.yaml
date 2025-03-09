@@ -1,6 +1,4 @@
 traefik:
-  additionalArguments:
-    - --api.insecure=true
   ports:
     web:
       redirections:
