@@ -1,7 +1,6 @@
 traefik:
   additionalArguments:
     - --api.insecure=true
-    - --entrypoints.websecure.middlewares.cloudflarewarp.plugin.cloudflarewarp.disableDefault=false
   ports:
     web:
       redirections:
@@ -37,6 +36,17 @@ traefik:
         periodSeconds: 10
         successThreshold: 1
         timeoutSeconds: 1
+  providers:
+    file:
+      enabled: true
+      watch: true
+      content: |
+        http:
+          middlewares:
+            cloudflarewarp:
+              plugin:
+                cloudflarewarp:
+                  disableDefault: false
   experimental:
     plugins:
       cloudflarewarp:
