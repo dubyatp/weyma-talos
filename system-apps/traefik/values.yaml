@@ -45,7 +45,9 @@ traefik:
           middlewares:
             cloudflarewarp:
               plugin:
-                traefik-real-ip
+                traefik-real-ip:
+                  excludednets:
+                    - "1.1.1.1/24"
   experimental:
     plugins:
       cloudflarewarp:
