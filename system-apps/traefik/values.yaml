@@ -1,7 +1,7 @@
 traefik:
   additionalArguments:
     - --api.insecure=true
-    - --http.middlewares.cloudflarewarp.plugin.cloudflarewarp.disableDefault=false
+    - --entrypoints.websecure.middlewares.cloudflarewarp.plugin.cloudflarewarp.disableDefault=false
   ports:
     web:
       redirections:
