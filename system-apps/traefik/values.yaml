@@ -36,6 +36,10 @@ traefik:
         periodSeconds: 10
         successThreshold: 1
         timeoutSeconds: 1
+  tlsStore:
+    default:
+      defaultCertificate:
+        secretName: cert-dubyatp-xyz
   providers:
     file:
       enabled: true
@@ -71,3 +75,13 @@ traefik:
         remoteRef:
           key: traefik
           property: cloudflare-token
+  - apiVersion: v1
+    kind: Secret
+    metadata:
+      name: cert-dubyatp-xyz
+      annotations:
+        replicator.v1.mittwald.de/replicate-from: "cert-manager/cert-dubyatp-xyz"
+        replicator.v1.mittwald.de/replicated-keys: "tls.crt,tls.key"
+    data:
+      tls.crt: ""
+      tls.key: ""
