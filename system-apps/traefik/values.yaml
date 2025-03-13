@@ -52,6 +52,9 @@ traefik:
                 traefik-real-ip:
                   excludednets:
                     - "1.1.1.1/24"
+  service:
+    spec:
+      externalTrafficPolicy: Local
   experimental:
     plugins:
       traefik-real-ip:
