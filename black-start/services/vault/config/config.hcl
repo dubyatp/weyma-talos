@@ -15,7 +15,7 @@ listener "tcp" {
 
 seal "awskms" {
   region = "us-east-1"
-  access_key = "AKIAS7LPFCPFUF4QKHPA"
+  access_key = "AKIAS7LPFCPFUF4QKHPA" // This is not a secret. The secret portion is defined under the environment variable "AWS_SECRET_ACCESS_KEY"
   kms_key_id = "ea99bc16-6e46-482c-9ee0-62db515c490c"
 }
 
