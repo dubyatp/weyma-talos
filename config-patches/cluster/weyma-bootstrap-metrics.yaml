@@ -1,0 +1,22 @@
+cluster:
+  extraManifests:
+    - https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/main/deploy/standalone-install.yaml
+    - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  inlineManifests:
+    - name: metrics-lb
+      contents: |-
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: metrics-lb
+          namespace: kube-system
+        spec:
+          type: LoadBalancer
+          ports:
+          - name: https
+            port: 443
+            protocol: TCP
+            targetPort: https
+          selector:
+            k8s-app: metrics-server
+        
