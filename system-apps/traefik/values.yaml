@@ -40,6 +40,9 @@ traefik:
     default:
       defaultCertificate:
         secretName: cert-dubyatp-xyz
+  ingressRoute:
+    dashboard:
+      enabled: true
   providers:
     file:
       enabled: true
