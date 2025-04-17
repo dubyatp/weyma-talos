@@ -9,7 +9,7 @@ traefik:
           scheme: https
           permanent: true
   deployment:
-    replicas: 4
+    kind: DaemonSet
     additionalContainers:
     - name: cloudflared
       image: cloudflare/cloudflared:2025.2.1
