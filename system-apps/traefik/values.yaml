@@ -1,6 +1,7 @@
 traefik:
   additionalArguments:
     - --api.insecure=true
+    - --entryPoints.websecure.transport.respondingTimeouts.readTimeout=0
   ports:
     web:
       redirections:
