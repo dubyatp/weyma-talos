@@ -12,6 +12,4 @@ services:
       - ./.basicauthpass:/etc/prometheus/.basicauthpass
       - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
       - ./web-config.yaml:/etc/prometheus/web-config.yaml
-      - prometheus-data:/prometheus
-volumes:
-  prometheus-data:
+      - /mnt/prometheus-data:/prometheus
