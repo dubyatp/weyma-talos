@@ -2,9 +2,9 @@ machine:
   network:
     interfaces:
       - deviceSelector:
-          hardwareAddr: "e8:ff:1e:d4:b8:8a"
+          hardwareAddr: "e8:ff:1e:d4:b8:89"
         dhcp: true
       - deviceSelector:
-          hardwareAddr: "e8:ff:1e:d4:b8:89"
+          hardwareAddr: "e8:ff:1e:d4:b8:8a"
         mtu: 9000
         dhcp: true
