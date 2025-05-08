@@ -1,0 +1,22 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: vault-approle-secret
+  namespace: cert-manager
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: weyma-vault
+    kind: ClusterSecretStore
+  target:
+    name: vault-approle-secret
+    creationPolicy: Owner
+  data:
+  - secretKey: roleId
+    remoteRef:
+      key: cert-manager
+      property: vault-approle-secret-roleid
+  - secretKey: secretId
+    remoteRef:
+      key: cert-manager
+      property: vault-approle-secret-secretid 
