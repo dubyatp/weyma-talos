@@ -6,7 +6,7 @@ metadata:
 spec:
   vault:
     server: https://weyma-vault.infra.dubyatp.xyz
-    path: pki/sign/internal
+    path: pki/sign/weyma-talos-cert-manager
     auth:
       appRole:
         path: approle
