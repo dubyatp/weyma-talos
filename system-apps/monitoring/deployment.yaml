@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-agent
+  template:
+    metadata:
+      labels:
+        app: prometheus-agent
+    spec:
+      serviceAccountName: prometheus-agent
+      containers:
+        - name: prometheus
+          image: prom/prometheus:v3.2.1
+          args:
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--agent"
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/prometheus
+            - name: auth
+              mountPath: /etc/prometheus/secrets
+      volumes:
+        - name: config-volume
+          configMap:
+            name: prom-agent-config
+        - name: auth
+          secret:
+            secretName: prometheus-auth
+            
