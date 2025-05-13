@@ -23,9 +23,15 @@ data:
       - job_name: 'weyma-talos-nodes'
         kubernetes_sd_configs:
           - role: node
+        scheme: https
+        tls_config:
+          insecure_skip_verify: true
         relabel_configs:
           - action: labelmap
             regex: __meta_kubernetes_node_label_(.+)
+          - target_label: __address__
+            replacement: $1:9101
+            source_labels: [_address__]
       - job_name: 'weyma-talos-service-endpoints'
         kubernetes_sd_configs:
           - role: endpoints
