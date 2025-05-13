@@ -20,7 +20,7 @@ data:
               ]
             action: keep
             regex: default;kubernetes;https
-      - job_name: 'weyma-talos-nodes'
+      - job_name: 'weyma-talos-nodes-kubelet'
         kubernetes_sd_configs:
           - role: node
         scheme: https
@@ -29,6 +29,19 @@ data:
         relabel_configs:
           - action: labelmap
             regex: __meta_kubernetes_node_label_(.+)
+      - job_name: 'weyma-talos-nodes-metrics'
+        kubernetes_sd_configs:
+          - role: node
+        scheme: https
+        tls_config:
+          insecure_skip_verify: true
+        relabel_configs:
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+          - source_labels: [__address__]
+            regex: (.+):\d+
+            target_label: __address__
+            replacement: ${1}:9101
       - job_name: 'weyma-talos-service-endpoints'
         kubernetes_sd_configs:
           - role: endpoints
@@ -41,10 +54,10 @@ data:
           - source_labels: [__meta_kubernetes_service_name]
             action: replace
             target_label: service
-    remote_write:
-      - url: "https://10.105.15.20:30104/api/v1/write"
-        basic_auth:
-          username: prometheus
-          password_file: /etc/prometheus/secrets/.basicauthpass
-        tls_config:
-          insecure_skip_verify: true
+remote_write:
+  - url: "https://10.105.15.20:30104/api/v1/write"
+    basic_auth:
+      username: prometheus
+      password_file: /etc/prometheus/secrets/.basicauthpass
+    tls_config:
+      insecure_skip_verify: true
