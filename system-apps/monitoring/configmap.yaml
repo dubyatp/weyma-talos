@@ -8,29 +8,19 @@ data:
     global:
       scrape_interval: 15s
     scrape_configs:
-      - job_name: 'weyma-talos-apiservers'
+      - job_name: 'weyma-talos-nodes-kubelet'
         kubernetes_sd_configs:
-          - role: endpoints
+          - role: node
+        scheme: https
+        tls_config:
+          insecure_skip_verify: true
+        authorization:
+          credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
         relabel_configs:
-          - source_labels: 
-              [
-                __meta_kubernetes_namespace,
-                __meta_kubernetes_service_name,
-                __meta_kubernetes_endpoint_port_name,
-              ]
-            action: keep
-            regex: default;kubernetes;https
-      #- job_name: 'weyma-talos-nodes-kubelet'
-      #  kubernetes_sd_configs:
-      #    - role: node
-      #  scheme: https
-      #  tls_config:
-      #    insecure_skip_verify: true
-      #  authorization:
-      #    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
-      #  relabel_configs:
-      #    - action: labelmap
-      #      regex: __meta_kubernetes_node_label_(.+)
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+          - action: labeldrop
+            regex: __meta_kubernetes_node_label_cpu_feature_node_kubevirt_io_.*
       - job_name: 'weyma-talos-nodes-metrics'
         kubernetes_sd_configs:
           - role: node
@@ -44,10 +34,17 @@ data:
             regex: (.+):\d+
             target_label: __address__
             replacement: ${1}:9100
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+          - action: labeldrop
+            regex: __meta_kubernetes_node_label_cpu_feature_node_kubevirt_io_.*
       - job_name: 'weyma-talos-service-endpoints'
         kubernetes_sd_configs:
           - role: endpoints
         relabel_configs:
+          - source_labels: [__meta_kubernetes_service_label_metrics_enabled]
+            regex: true
+            action: keep
           - action: labelmap
             regex: __meta_kubernetes_service_label_(.+)
           - source_labels: [__meta_kubernetes_namespace]
