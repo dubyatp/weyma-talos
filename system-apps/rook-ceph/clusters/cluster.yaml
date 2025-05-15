@@ -17,6 +17,8 @@ spec:
   labels:
     monitoring:
       metrics/enabled: "true"
+    mgr:
+      metrics/enabled: "true"
   cephVersion:
     # The container image used to launch the Ceph daemon pods (mon, mgr, osd, mds, rgw).
     # v18 is Reef, v19 is Squid
