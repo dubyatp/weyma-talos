@@ -15,7 +15,7 @@ metadata:
   namespace: rook-ceph # namespace:cluster
 spec:
   labels:
-    monitoring:
+    exporter:
       metrics/enabled: "true"
     mgr:
       metrics/enabled: "true"
