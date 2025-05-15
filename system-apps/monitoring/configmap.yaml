@@ -20,7 +20,7 @@ data:
           - action: labelmap
             regex: __meta_kubernetes_node_label_(.+)
           - action: labeldrop
-            regex: __meta_kubernetes_node_label_cpu_feature_node_kubevirt_io_.*
+            regex: ^__meta_kubernetes_node_label_cpu_feature_node_kubevirt_io_.+
       - job_name: 'weyma-talos-nodes-metrics'
         kubernetes_sd_configs:
           - role: node
@@ -37,7 +37,7 @@ data:
           - action: labelmap
             regex: __meta_kubernetes_node_label_(.+)
           - action: labeldrop
-            regex: __meta_kubernetes_node_label_cpu_feature_node_kubevirt_io_.*
+            regex: ^__meta_kubernetes_node_label_cpu_feature_node_kubevirt_io_.+
       - job_name: 'weyma-talos-service-endpoints'
         kubernetes_sd_configs:
           - role: endpoints
