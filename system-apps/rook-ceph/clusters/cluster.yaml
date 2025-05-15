@@ -15,7 +15,7 @@ metadata:
   namespace: rook-ceph # namespace:cluster
 spec:
   labels:
-    exporter:
+    monitoring:
       metrics/enabled: "true"
   cephVersion:
     # The container image used to launch the Ceph daemon pods (mon, mgr, osd, mds, rgw).
