@@ -71,7 +71,7 @@ data:
           - role: endpoints
         relabel_configs:
           - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_service_label_metrics_enabled]
-            regex: (^rook-ceph-(exporter|mgr)$;.*)|(.*;true)
+            regex: (^rook-ceph-(exporter|mgr)$)|(;true$)
             action: keep
           - action: labelmap
             regex: __meta_kubernetes_service_label_(.+)
