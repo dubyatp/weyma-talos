@@ -15,6 +15,9 @@ velero:
       value: privileged
     - key: pod-security.kubernetes.io/warn-version
       value: latest
+  metrics:
+    labels:
+      metrics_enabled: "true"
   configuration:
     backupStorageLocation:
     - name: weyma-truenas
