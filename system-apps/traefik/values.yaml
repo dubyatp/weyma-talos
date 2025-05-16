@@ -9,6 +9,12 @@ traefik:
           to: websecure
           scheme: https
           permanent: true
+  metrics:
+    prometheus:
+      service:
+        enabled: true
+        labels:
+          metrics_enabled: "true"
   deployment:
     kind: DaemonSet
     additionalContainers:
