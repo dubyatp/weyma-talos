@@ -1,3 +1,11 @@
 cert-manager:
   namespace: cert-manager
   installCRDs: true
+  serviceLabels:
+    metrics_enabled: "true"
+  webhook:
+    serviceLabels:
+      metrics_enabled: "true"
+  cainjector:
+    serviceLabels:
+      metrics_enabled: "true"
