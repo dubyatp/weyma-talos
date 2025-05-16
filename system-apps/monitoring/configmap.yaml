@@ -88,6 +88,9 @@ data:
           - source_labels: [__meta_kubernetes_service_name]
             regex: ^rook-ceph-(exporter|mgr)$
             action: keep
+          - source_labels: [__address__]
+            regex: ^[^:]+:(9283|9926)$
+            action: keep
           - action: labelmap
             regex: __meta_kubernetes_service_label_(.+)
           - source_labels: [__meta_kubernetes_namespace]
