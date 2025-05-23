@@ -19,7 +19,7 @@ traefik:
     kind: DaemonSet
     additionalContainers:
     - name: cloudflared
-      image: cloudflare/cloudflared:2025.2.1
+      image: cloudflare/cloudflared:2025.5.0
       command:
         - cloudflared
         - tunnel
