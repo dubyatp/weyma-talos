@@ -6,32 +6,32 @@ services:
         environment:
             - REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io
         restart: always
-        image: registry:2
+        image: registry:3
     registry-k8s:
         ports:
             - 6001:5000
         environment:
             - REGISTRY_PROXY_REMOTEURL=https://registry.k8s.io
         restart: always
-        image: registry:2
+        image: registry:3
     registry-gcr:
         ports:
             - 6002:5000
         environment:
             - REGISTRY_PROXY_REMOTEURL=https://gcr.io
         restart: always
-        image: registry:2
+        image: registry:3
     registry-ghcr:
         ports:
             - 6003:5000
         environment:
             - REGISTRY_PROXY_REMOTEURL=https://ghcr.io
         restart: always
-        image: registry:2
+        image: registry:3
     registry-talosfactory:
         ports:
             - 6004:5000
         environment:
             - REGISTRY_PROXY_REMOTEURL=https://factory.talos.dev
         restart: always
-        image: registry:2
+        image: registry:3
