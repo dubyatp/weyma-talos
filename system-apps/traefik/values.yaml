@@ -71,7 +71,7 @@ traefik:
         moduleName: github.com/jramsgz/traefik-real-ip
         version: v1.0.4
   extraObjects:
-  - apiVersion: external-secrets.io/v1beta1
+  - apiVersion: external-secrets.io/v1
     kind: ExternalSecret
     metadata:
       name: cloudflare-cred
