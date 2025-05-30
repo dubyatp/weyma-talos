@@ -2,6 +2,6 @@ machine:
   network:
     interfaces:
       - deviceSelector:
-          hardwareAddr: "00:16:3e:13:1a:d7"
+          hardwareAddr: "00:16:3e:a7:fb:9d"
           driver: "virtio*"
         dhcp: true
