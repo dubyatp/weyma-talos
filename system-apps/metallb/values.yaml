@@ -198,7 +198,7 @@ controller:
   # webhookMode: enabled
   image:
     repository: quay.io/metallb/controller
-    tag: v0.14.9
+    tag: v0.15.2
     pullPolicy:
   ## @param controller.updateStrategy.type Metallb controller deployment strategy type.
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
