@@ -1,20 +1,6 @@
 velero:
   backupsEnabled: true
   snapshotsEnabled: false
-  namespace:
-    labels:
-    - key: pod-security.kubernetes.io/enforce
-      value: privileged
-    - key: pod-security.kubernetes.io/enforce-version
-      value: latest
-    - key: pod-security.kubernetes.io/audit
-      value: privileged
-    - key: pod-security.kubernetes.io/audit-version
-      value: latest
-    - key: pod-security.kubernetes.io/warn
-      value: privileged
-    - key: pod-security.kubernetes.io/warn-version
-      value: latest
   metrics:
     labels:
       metrics_enabled: "true"
