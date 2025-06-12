@@ -2,10 +2,11 @@ machine:
   network:
     interfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:6c:aa:da"
+          hardwareAddr: "bc:24:11:be:6c:08"
           driver: "virtio*"
         dhcp: true
       - deviceSelector:
-          hardwareAddr: "bc:24:11:98:7a:86"
+          hardwareAddr: "bc:24:11:f8:4a:92"
           driver: "virtio*"
         dhcp: true
+        mtu: 8996
