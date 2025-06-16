@@ -9,6 +9,13 @@ traefik:
           to: websecure
           scheme: https
           permanent: true
+    gitssh:
+      port: 2222
+      exposedPort: 22
+      expose:
+        default: true
+      tls:
+        passthrough: true
   metrics:
     prometheus:
       service:
