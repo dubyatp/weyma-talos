@@ -5,7 +5,7 @@ services:
     command: tunnel run weyma-vault
     env_file: ".env"
   vault:
-    image: hashicorp/vault:1.19
+    image: hashicorp/vault:1.20
     env_file: ".env.vault"
     environment:
       VAULT_ADDR: "https://weyma-vault.infra.dubyatp.xyz:8200"
