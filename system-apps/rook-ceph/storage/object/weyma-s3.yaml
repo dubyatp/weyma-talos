@@ -1,0 +1,30 @@
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStore
+metadata:
+  name: weyma-s3
+  namespace: rook-ceph
+spec:
+  dataPool:
+    application: ""
+    erasureCoded:
+      codingChunks: 1
+      dataChunks: 2
+    failureDomain: host
+    replicated:
+      size: 0
+  gateway:
+    instances: 3
+    port: 80
+  metadataPool:
+    application: ""
+    erasureCoded:
+      codingChunks: 0
+      dataChunks: 0
+    failureDomain: host
+    replicated:
+      size: 3
+  preservePoolsOnDelete: true
+  sharedPools:
+    preserveRadosNamespaceDataOnDelete: false
+  zone:
+    name: ""
