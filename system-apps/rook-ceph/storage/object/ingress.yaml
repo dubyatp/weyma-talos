@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: weyma-s3-ingress
+spec:
+  rules:
+  - host: "weyma-s3.infra.dubyatp.xyz"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: rook-ceph-rgw-weyma-s3
+            port: 
+              number: 80
+        
+  - host: "*.weyma-s3.infra.dubyatp.xyz"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: rook-ceph-rgw-weyma-s3
+            port: 
+              number: 80
+  tls:
+    - secretName: cert-dubyatp-xyz
+      hosts:
+       - weyma-s3.infra.dubyatp.xyz
+       - "*.weyma-s3.infra.dubyatp.xyz"

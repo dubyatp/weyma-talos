@@ -9,6 +9,7 @@ spec:
   - dubyatp.xyz
   - '*.dubyatp.xyz'
   - '*.infra.dubyatp.xyz'
+  - "*.weyma-s3.infra.dubyatp.xyz"
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-dubyatp-xyz

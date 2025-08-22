@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cert-dubyatp-xyz
+  annotations:
+    replicator.v1.mittwald.de/replicate-from: cert-manager/cert-dubyatp-xyz
+    replicator.v1.mittwald.de/replicated-keys: tls.crt,tls.key
+type: Opaque
+stringData:
+  tls.crt: ""
+  tls.key: ""
