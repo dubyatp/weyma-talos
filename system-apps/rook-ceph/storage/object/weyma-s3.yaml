@@ -11,15 +11,15 @@ spec:
       dataChunks: 2
     failureDomain: host
     replicated:
-      size: 0
+      size: 3
   gateway:
     instances: 3
     port: 80
   hosting:
     advertiseEndpoint:
-      dnsName: weyma-s3.infra.dubyatp.xyz
-      port: 443
-      useTls: true
+      dnsName: rook-ceph-rgw-weyma-s3
+      port: 80
+      useTls: false
   metadataPool:
     application: ""
     erasureCoded:
