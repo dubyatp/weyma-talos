@@ -15,11 +15,6 @@ spec:
   gateway:
     instances: 3
     port: 80
-  hosting:
-    advertiseEndpoint:
-      dnsName: rook-ceph-rgw-weyma-s3
-      port: 80
-      useTls: false
   metadataPool:
     application: ""
     erasureCoded:
