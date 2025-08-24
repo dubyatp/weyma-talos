@@ -6,9 +6,6 @@ metadata:
 spec:
   dataPool:
     application: ""
-    erasureCoded:
-      codingChunks: 1
-      dataChunks: 2
     failureDomain: host
     replicated:
       size: 3
