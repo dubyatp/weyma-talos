@@ -32,6 +32,9 @@ velero:
         velero.io/change-storage-class: RestoreItemAction
       data:
         ceph-block: weyma-shared
+  kubectl:
+    image:
+      tag: "1.33.4"
   extraObjects:
   - apiVersion: external-secrets.io/v1
     kind: ExternalSecret
