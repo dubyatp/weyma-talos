@@ -7,8 +7,6 @@ spec:
     "cniVersion": "0.4.0",
     "type": "bridge",
     "bridge": "br0",
-    "ipMasq": true,
-    "vlan": 50,
     "ipam": {
       "type": "host-local",
       "subnet": "10.105.20.0/24",
