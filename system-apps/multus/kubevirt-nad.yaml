@@ -6,7 +6,7 @@ spec:
   config: '{
     "cniVersion": "0.4.0",
     "type": "bridge",
-    "bridge": "br-vlan50",
+    "bridge": "br0",
     "ipMasq": true,
     "vlan": 50,
     "ipam": {
