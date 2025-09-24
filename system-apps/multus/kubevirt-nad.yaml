@@ -11,13 +11,9 @@ spec:
     "vlan": 50,
     "ipam": {
       "type": "host-local",
-      "addresses": [
-        {
-          "subnet": "10.105.20.0/24",
-          "rangeStart": "10.105.20.30",
-          "rangeEnd": "10.105.20.230",
-          "gateway": "10.105.20.1"
-        }
-      ]
+      "subnet": "10.105.20.0/24",
+      "rangeStart": "10.105.20.30",
+      "rangeEnd": "10.105.20.230",
+      "gateway": "10.105.20.1"
     }
    }'
