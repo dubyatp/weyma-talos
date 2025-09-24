@@ -3,8 +3,18 @@ machine:
     interfaces:
       - deviceSelector:
           hardwareAddr: "f4:52:14:60:5e:30"
+          driver: "mlx4_core"
         dhcp: true
+        vlans:
+          - vlanId: 50
+            dhcp: false
       - deviceSelector:
           hardwareAddr: "f4:52:14:60:5e:31"
         dhcp: true
         mtu: 9000
+      - interface: br0
+        addresses:
+          - 10.105.20.254/24
+        bridge:
+          interfaces:
+            - eno1.50
