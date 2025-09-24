@@ -1,0 +1,23 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: kubevirt-nad
+spec:
+  config: '{
+    "cniVersion": "0.4.0",
+    "type": "bridge",
+    "bridge": "br-vlan50",
+    "isGateway": true,
+    "vlan": 50,
+    "ipam": {
+      "type": "host-local",
+      "addresses": [
+        {
+          "address": "10.105.20.254/24",
+          "rangeStart": "10.105.20.30",
+          "rangeEnd": "10.105.20.230",
+          "gateway": "10.105.20.1"
+        }
+      ]
+    }
+   }'
