@@ -104,9 +104,9 @@ spec:
           args:
             - -c
             - |
-              if [ "${HOSTTYPE}" = "x86_64" ] || [ "${HOSTTYPE}" = "amd64" ]; then
+              if [ "${uname -m}" = "x86_64" ] || [ "${uname -m}" = "amd64" ]; then
                 ARCH="amd64"
-              elif [ "${HOSTTYPE}" = "arm64" ] || [ "${HOSTTYPE}" = "aarch64" ]; then
+              elif [ "${uname -m}" = "arm64" ] || [ "${uname -m}" = "aarch64" ]; then
                 ARCH="arm64"
               else
                 exit 1
