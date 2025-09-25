@@ -95,6 +95,39 @@ spec:
             - name: cnibin
               mountPath: /host/opt/cni/bin
               mountPropagation: Bidirectional
+        - name: install-dhcp
+          image: alpine:3.22.1
+          env:
+            - name: VERSION
+              value: "1.8.0"
+          command: ["/bin/sh"]
+          args:
+            - -c
+            - |
+              if [ "${HOSTTYPE}" = "x86_64" ] || [ "${HOSTTYPE}" = "amd64" ]; then
+                ARCH="amd64"
+              elif [ "${HOSTTYPE}" = "arm64" ] || [ "${HOSTTYPE}" = "aarch64" ]; then
+                ARCH="arm64"
+              else
+                exit 1
+              fi
+
+              set -e
+              apk add --no-cache wget tar
+              wget https://github.com/containernetworking/plugins/releases/download/v${VERSION}/cni-plugins-linux-${ARCH}-v${VERSION}.tgz
+              tar -xzf cni-plugins-linux-${ARCH}-v${VERSION}.tgz -C /host/opt/cni/bin --strip-components=1 --wildcards '*/dhcp'
+              rm cni-plugins-linux-${ARCH}-v${VERSION}.tgz
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "15Mi"
+          securityContext:
+            privileged: true
+          terminationMessagePolicy: FallbackToLogsOnError
+          volumeMounts:
+            - name: cnibin
+              mountPath: /host/opt/cni/bin
+              mountPropagation: Bidirectional
       terminationGracePeriodSeconds: 10
       volumes:
         - name: cni
