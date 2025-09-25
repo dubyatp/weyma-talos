@@ -95,40 +95,6 @@ spec:
             - name: cnibin
               mountPath: /host/opt/cni/bin
               mountPropagation: Bidirectional
-        - name: install-dhcp
-          image: alpine:3.22.1
-          env:
-            - name: VERSION
-              value: "1.8.0"
-          command: ["/bin/sh"]
-          args:
-            - -c
-            - |
-              set -e -x  # Enable debug output
-              ARCH=$(uname -m)
-              case "$ARCH" in
-                x86_64) ARCH="amd64" ;;
-                aarch64) ARCH="arm64" ;;
-                *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
-              esac
-              echo "Installing CNI plugins for $ARCH, version $VERSION"
-              apk add --no-cache wget tar
-              wget -q https://github.com/containernetworking/plugins/releases/download/v${VERSION}/cni-plugins-linux-${ARCH}-v${VERSION}.tgz || { echo "Failed to download tarball"; exit 1; }
-              mkdir -p /host/opt/cni/bin
-              tar -xzf cni-plugins-linux-${ARCH}-v${VERSION}.tgz -C /host/opt/cni/bin --strip-components=1 --wildcards '*/dhcp' || { echo "Failed to extract tarball"; exit 1; }
-              rm cni-plugins-linux-${ARCH}-v${VERSION}.tgz
-              echo "Successfully installed dhcp"
-          resources:
-            requests:
-              cpu: "10m"
-              memory: "15Mi"
-          securityContext:
-            privileged: true
-          terminationMessagePolicy: FallbackToLogsOnError
-          volumeMounts:
-            - name: cnibin
-              mountPath: /host/opt/cni/bin
-              mountPropagation: Bidirectional
       terminationGracePeriodSeconds: 10
       volumes:
         - name: cni
