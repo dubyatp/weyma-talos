@@ -3,8 +3,17 @@ machine:
     interfaces:
       - deviceSelector:
           hardwareAddr: "e8:ff:1e:d4:b8:89"
+          driver: "igc"
         dhcp: true
+        vlans:
+          - vlanId: 50
+            dhcp: false
       - deviceSelector:
           hardwareAddr: "e8:ff:1e:d4:b8:8a"
         mtu: 9000
         dhcp: true
+      - interface: br0
+        dhcp: false
+        bridge:
+          interfaces:
+            - enp1s0.50
