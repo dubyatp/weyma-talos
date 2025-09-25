@@ -104,19 +104,20 @@ spec:
           args:
             - -c
             - |
-              if [ "${uname -m}" = "x86_64" ] || [ "${uname -m}" = "amd64" ]; then
-                ARCH="amd64"
-              elif [ "${uname -m}" = "arm64" ] || [ "${uname -m}" = "aarch64" ]; then
-                ARCH="arm64"
-              else
-                exit 1
-              fi
-
-              set -e
+              set -e -x  # Enable debug output
+              ARCH=$(uname -m)
+              case "$ARCH" in
+                x86_64) ARCH="amd64" ;;
+                aarch64) ARCH="arm64" ;;
+                *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
+              esac
+              echo "Installing CNI plugins for $ARCH, version $VERSION"
               apk add --no-cache wget tar
-              wget https://github.com/containernetworking/plugins/releases/download/v${VERSION}/cni-plugins-linux-${ARCH}-v${VERSION}.tgz
-              tar -xzf cni-plugins-linux-${ARCH}-v${VERSION}.tgz -C /host/opt/cni/bin --strip-components=1 --wildcards '*/dhcp'
+              wget -q https://github.com/containernetworking/plugins/releases/download/v${VERSION}/cni-plugins-linux-${ARCH}-v${VERSION}.tgz || { echo "Failed to download tarball"; exit 1; }
+              mkdir -p /host/opt/cni/bin
+              tar -xzf cni-plugins-linux-${ARCH}-v${VERSION}.tgz -C /host/opt/cni/bin --strip-components=1 --wildcards '*/dhcp' || { echo "Failed to extract tarball"; exit 1; }
               rm cni-plugins-linux-${ARCH}-v${VERSION}.tgz
+              echo "Successfully installed dhcp"
           resources:
             requests:
               cpu: "10m"
