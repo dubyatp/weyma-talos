@@ -8,5 +8,14 @@ machine:
       - deviceSelector:
           hardwareAddr: "bc:24:11:f8:4a:92"
           driver: "virtio*"
-        dhcp: true
         mtu: 8996
+        dhcp: true
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:93:02:0e"
+          driver: "virtio*"
+        dhcp: false
+      - interface: br0
+        dhcp: false
+        bridge:
+          interfaces:
+            - enxbc241193020e
