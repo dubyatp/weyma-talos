@@ -3,12 +3,6 @@
 # Declare variables to be passed into your templates.
 
 image:
-  # -- Image
-  repository: docker.io/rook/ceph
-  # -- Image tag
-  # @default -- `v1.16.4`
-  tag: v1.18.2
-  # -- Image pull policy
   pullPolicy: IfNotPresent
 
 crds:
