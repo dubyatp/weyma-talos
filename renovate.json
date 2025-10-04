@@ -1,3 +1,32 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update Ceph version in Rook CephCluster spec",
+      "managerFilePatterns": ["/(^|/)rook-ceph-cluster\\.ya?ml$/"],
+      "matchStrings": [
+        "image:\\s*[\"']?(?<depName>quay\\.io/ceph/ceph):v(?<currentValue>\\d+\\.\\d+\\.\\d+)(?:-\\d+)?[\"']?"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "loose",
+      "extractVersionTemplate": "^v?(?<version>\\d+\\.\\d+\\.\\d+)"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Rook Ceph - auto-update minor and patch versions only",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["quay.io/ceph/ceph"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "enabled": true
+    },
+    {
+      "description": "Rook Ceph - block major version upgrades",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["quay.io/ceph/ceph"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ]
 }
