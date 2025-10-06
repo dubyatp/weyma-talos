@@ -29,6 +29,10 @@ argo-cd:
           - /data
     params:
       server.insecure: true
+    ssh:
+      extraHosts: |
+        git.dubyatp.xyz ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/9ygk32Ibk6/ZqIhwh0ZyTTDpdXxP/BUgtJI4FVLKVWIEFnB+fOCTsSXM/mt8R0Xld/AJ+muywNhZc60nEAg+Pj4yxc0u75t1Ea+C8JjEh2xW7rH+oZLv+JabcLk5Ze7rpaETkq2ILxNmBKemgDut8mXt9BYBo5mk72ClWBsijFWw8Vj8LnWfzw/VsFFlQ4CJvnLuTqw+bgI5VlodwR20wcEHuSuUKY9IA2hyDZLWJ2vZzIlI8TuY21Qc8vFmEVB7M1mgqLJKksdi/ZLHk5UN9HTRz0Q6SaNyvPfjWCeHX8Tb3WnsAnHvnXc0C3A2EWVFqHIpJwVRTC2ef6LCUmZmPv1NqnFWftv192n+oOJqT+537fNesK7tQJfX4Osi5RDCL788GjJHLOarzEIKegpunCjq/9yp/Oi6M/v+/eN7rdd/UY80mcmoOC1HOVPfjxmCfcFFpqKX3NYlx/czF+gpf0mRBaHEpkGk3oPrqGiZbSAShsLDvptZANmBoBSDFwFwJpHxdMzMOLM8NyQNewKs1pYbjklbuC5W33qjgHdVk56jnGVPwCVak/TQgoOI9NtxnfvfV6sB5mQWEkiNsUzEVK3hgu5Wa93vN/DZ75KoS95Ldj4pCfJV92eeeYWvrRPAIdnzxjH2rdfhysHW2NYFdl7PlAqcca+CaO4WOHOMJw==
+        git-ssh.dubyatp.xyz ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/9ygk32Ibk6/ZqIhwh0ZyTTDpdXxP/BUgtJI4FVLKVWIEFnB+fOCTsSXM/mt8R0Xld/AJ+muywNhZc60nEAg+Pj4yxc0u75t1Ea+C8JjEh2xW7rH+oZLv+JabcLk5Ze7rpaETkq2ILxNmBKemgDut8mXt9BYBo5mk72ClWBsijFWw8Vj8LnWfzw/VsFFlQ4CJvnLuTqw+bgI5VlodwR20wcEHuSuUKY9IA2hyDZLWJ2vZzIlI8TuY21Qc8vFmEVB7M1mgqLJKksdi/ZLHk5UN9HTRz0Q6SaNyvPfjWCeHX8Tb3WnsAnHvnXc0C3A2EWVFqHIpJwVRTC2ef6LCUmZmPv1NqnFWftv192n+oOJqT+537fNesK7tQJfX4Osi5RDCL788GjJHLOarzEIKegpunCjq/9yp/Oi6M/v+/eN7rdd/UY80mcmoOC1HOVPfjxmCfcFFpqKX3NYlx/czF+gpf0mRBaHEpkGk3oPrqGiZbSAShsLDvptZANmBoBSDFwFwJpHxdMzMOLM8NyQNewKs1pYbjklbuC5W33qjgHdVk56jnGVPwCVak/TQgoOI9NtxnfvfV6sB5mQWEkiNsUzEVK3hgu5Wa93vN/DZ75KoS95Ldj4pCfJV92eeeYWvrRPAIdnzxjH2rdfhysHW2NYFdl7PlAqcca+CaO4WOHOMJw==
     rbac:
       policy.csv: |
         g, ArgoCD Admins, role:admin
