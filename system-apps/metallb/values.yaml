@@ -196,10 +196,7 @@ controller:
   logLevel: info
   # command: /controller
   # webhookMode: enabled
-  image:
-    repository: quay.io/metallb/controller
-    tag: v0.15.2
-    pullPolicy:
+
   ## @param controller.updateStrategy.type Metallb controller deployment strategy type.
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
   ## e.g:
@@ -271,10 +268,6 @@ speaker:
   # ignore the exclude-from-external-loadbalancer label
   ignoreExcludeLB: false
 
-  image:
-    repository: quay.io/metallb/speaker
-    tag: v0.15.2
-    pullPolicy:
   ## @param speaker.updateStrategy.type Speaker daemonset strategy type
   ## ref: https://kubernetes.io/docs/tasks/manage-daemon/update-daemon-set/
   ##
@@ -329,10 +322,6 @@ speaker:
   # for speaker running alongside FRR.
   frr:
     enabled: false
-    image:
-      repository: quay.io/frrouting/frr
-      tag: 10.5.0
-      pullPolicy:
     metricsPort: 7473
     resources: {}
 
