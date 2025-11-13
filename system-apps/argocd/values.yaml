@@ -39,6 +39,30 @@ argo-cd:
   server:
     ingress:
       enabled: true
+    livenessProbe:
+      enabled: true
+    readinessProbe:
+      enabled: true
+  repoServer:
+    livenessProbe:
+      enabled: true
+    readinessProbe:
+      enabled: true
+  applicationSet:
+    livenessProbe:
+      enabled: true
+    readinessProbe:
+      enabled: true 
+  redis:
+    livenessProbe:
+      enabled: true
+    readinessProbe:
+      enabled: true  
+  dex:
+    livenessProbe:
+      enabled: true
+    readinessProbe:
+      enabled: true
   extraObjects:
     - apiVersion: external-secrets.io/v1
       kind: ExternalSecret
