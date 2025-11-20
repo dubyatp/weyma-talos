@@ -1,0 +1,3 @@
+kube-prometheus-stack:
+  grafana:
+    enabled: false # Grafana is instead deployed in its own namespace in the core-apps repo
