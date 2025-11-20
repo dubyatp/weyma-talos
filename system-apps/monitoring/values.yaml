@@ -11,7 +11,7 @@ kube-prometheus-stack:
                 storage: 50Gi
   prometheus:
     prometheusSpec:
-      storage:
+      storageSpec:
         volumeClaimTemplate:
           spec:
             storageClassName: rook-ceph-block
