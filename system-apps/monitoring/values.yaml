@@ -1,3 +1,33 @@
 kube-prometheus-stack:
+  alertmanager:
+    alertmanagerSpec:
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: rook-ceph-block
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 50Gi
+  prometheus:
+    prometheusSpec:
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: rook-ceph-block
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 50Gi
+  thanosRuler:  
+    thanosRulerSpec:
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: rook-ceph-block
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 50Gi
   grafana:
     enabled: false # Grafana is instead deployed in its own namespace in the core-apps repo
