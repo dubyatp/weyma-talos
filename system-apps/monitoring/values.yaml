@@ -9,6 +9,10 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 50Gi
+  prometheusOperator:
+    admissionWebhooks:
+      certManager:
+        enabled: true
   prometheus:
     prometheusSpec:
       storageSpec:
