@@ -16,7 +16,10 @@ kube-prometheus-stack:
   prometheus:
     prometheusSpec:
       ruleSelectorNilUsesHelmValues: false
-      ruleSelector: {}
+      serviceMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
+      probeSelectorNilUsesHelmValues: false
+      scrapeConfigSelectorNilUsesHelmValues: false
       storageSpec:
         volumeClaimTemplate:
           spec:
