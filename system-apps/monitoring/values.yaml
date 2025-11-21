@@ -16,6 +16,7 @@ kube-prometheus-stack:
   prometheus:
     prometheusSpec:
       ruleSelectorNilUsesHelmValues: false
+      ruleSelector: {}
       storageSpec:
         volumeClaimTemplate:
           spec:
