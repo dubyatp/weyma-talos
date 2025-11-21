@@ -17,4 +17,40 @@ spec:
     - port: ceph-exporter-http-metrics
       path: /metrics
       interval: 10s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: rook-ceph-mgr
+  namespace: {{ .Release.Namespace }}
+spec:
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app: rook-ceph-mgr
+      rook_cluster: {{ .Values.monitoring.cluster_name | default "rook-ceph" }}
+  endpoints:
+    - port: http-metrics
+      path: /metrics
+      interval: 10s
+      honorLabels: true
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: csi-metrics
+  namespace: {{ .Release.Namespace }}
+spec:
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app: csi-metrics
+  endpoints:
+    - port: csi-http-metrics
+      path: /metrics
+      interval: 5s
 {{- end }}
