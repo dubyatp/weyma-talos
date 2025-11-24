@@ -41,8 +41,6 @@ argo-cd:
       enabled: true
       serviceMonitor:
         enabled: true
-      rules:
-        enabled: true
   server:
     ingress:
       enabled: true
