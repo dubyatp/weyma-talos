@@ -63,6 +63,12 @@ argo-cd:
       enabled: true
     readinessProbe:
       enabled: true
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+    rules:
+      enabled: true
   extraObjects:
     - apiVersion: external-secrets.io/v1
       kind: ExternalSecret
