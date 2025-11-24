@@ -36,6 +36,13 @@ argo-cd:
     rbac:
       policy.csv: |
         g, ArgoCD Admins, role:admin
+  controller:
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+      rules:
+        enabled: true
   server:
     ingress:
       enabled: true
@@ -43,32 +50,63 @@ argo-cd:
       enabled: true
     readinessProbe:
       enabled: true
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+      rules:
+        enabled: true
   repoServer:
     livenessProbe:
       enabled: true
     readinessProbe:
       enabled: true
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+      rules:
+        enabled: true
   applicationSet:
     livenessProbe:
       enabled: true
     readinessProbe:
       enabled: true 
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+      rules:
+        enabled: true
   redis:
     livenessProbe:
       enabled: true
     readinessProbe:
-      enabled: true  
+      enabled: true
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+      rules:
+        enabled: true 
   dex:
     livenessProbe:
       enabled: true
     readinessProbe:
       enabled: true
-  metrics:
-    enabled: true
-    serviceMonitor:
+    metrics:
       enabled: true
-    rules:
+      serviceMonitor:
+        enabled: true
+      rules:
+        enabled: true
+  notifications:
+    metrics:
       enabled: true
+      serviceMonitor:
+        enabled: true
+      rules:
+        enabled: true
   extraObjects:
     - apiVersion: external-secrets.io/v1
       kind: ExternalSecret
