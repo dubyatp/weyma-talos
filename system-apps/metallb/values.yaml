@@ -1,5 +1,6 @@
 metallb:
   prometheus:
+    rbacPrometheus: false
     podMonitor:
       enabled: true
     prometheusRule:
