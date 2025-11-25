@@ -9,3 +9,7 @@ cert-manager:
   cainjector:
     serviceLabels:
       metrics_enabled: "true"
+  prometheus:
+    enabled: true
+    servicemonitor:
+      enabled: true
