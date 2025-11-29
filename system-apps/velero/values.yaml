@@ -2,8 +2,10 @@ velero:
   backupsEnabled: true
   snapshotsEnabled: false
   metrics:
-    labels:
-      metrics_enabled: "true"
+    serviceMonitor:
+      enabled: true
+    prometheusRule:
+      enabled: true
   configuration:
     backupStorageLocation:
     - name: weyma-truenas
