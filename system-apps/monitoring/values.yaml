@@ -27,6 +27,19 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 50Gi
+  additionalPrometheusRulesMap:
+    rule-name:
+      groups:
+        - name: AdditionalAlerts
+          rules:
+            - alert: ExcessiveWarnings
+              expr: count(ALERTS{severity="warning",alertstate="firing"}) >= 5
+              for: 1m
+              labels:
+                severity: critical
+              annotations:
+                summary: Excessive 'warning' alerts are firing in the cluster
+                description: "{{ $value }} alerts with 'warning' severity are firing and could be a sign of catastrophic failure in the cluster"
   prometheusOperator:
     admissionWebhooks:
       certManager:
