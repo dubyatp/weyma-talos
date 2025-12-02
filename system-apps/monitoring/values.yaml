@@ -11,7 +11,7 @@ kube-prometheus-stack:
         - receiver: "discord_webhook"
           matchers:
             - severity = "critical"
-          continue: true
+          continue: false
         - receiver: 'null'
       receivers:
       - name: "null"
