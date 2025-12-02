@@ -2,6 +2,7 @@ kube-prometheus-stack:
   alertmanager:
     config:
       receivers:
+      - name: "null"
       - name: "discord_webhook"
         webhook_configs:
           - url: "http://alertmanager-discord:9094"
