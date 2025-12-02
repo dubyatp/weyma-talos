@@ -45,4 +45,5 @@ discord:
   secret:
     name: discord-webhook
     key: webhook
+  username: "Alertmanager"
   verbose: true
