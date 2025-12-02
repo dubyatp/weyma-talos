@@ -40,3 +40,9 @@ kube-prometheus-stack:
                 storage: 50Gi
   grafana:
     enabled: false # Grafana is instead deployed in its own namespace in the core-apps repo
+discord:
+  enabled: true
+  secret:
+    name: discord-webhook
+    key: webhook
+  verbose: true
