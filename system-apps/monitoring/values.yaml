@@ -1,6 +1,11 @@
 kube-prometheus-stack:
   alertmanager:
     config:
+      route:
+        routes:
+        - receiver: "discord_webhook"
+          matchers:
+            - severity = "critical"
       receivers:
       - name: "null"
       - name: "discord_webhook"
