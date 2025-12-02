@@ -3,6 +3,7 @@ kube-prometheus-stack:
     config:
       route:
         routes:
+        - receiver: 'null'
         - receiver: "discord_webhook"
           matchers:
             - severity = "critical"
