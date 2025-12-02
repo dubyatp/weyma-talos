@@ -8,10 +8,11 @@ kube-prometheus-stack:
         repeat_interval: 12h
         receiver: 'null'
         routes:
-        - receiver: 'null'
         - receiver: "discord_webhook"
           matchers:
             - severity = "critical"
+          continue: true
+        - receiver: 'null'
       receivers:
       - name: "null"
       - name: "discord_webhook"
