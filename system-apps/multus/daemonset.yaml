@@ -35,10 +35,10 @@ spec:
           resources:
             requests:
               cpu: "100m"
-              memory: "256Mi"
+              memory: "64Mi"
             limits:
               cpu: "100m"
-              memory: "64Mi"
+              memory: "256Mi"
           securityContext:
             privileged: true
           terminationMessagePolicy: FallbackToLogsOnError
