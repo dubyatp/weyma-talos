@@ -1,5 +1,13 @@
 kite:
   host: "https://weyma-kite.infra.dubyatp.xyz"
+  secret:
+    create: false
+    existingSecret: kite-secret
+  db:
+    sqlite:
+      persistence:
+        pvc:
+          enabled: true
   ingress:
     enabled: true
     className: "traefik"
