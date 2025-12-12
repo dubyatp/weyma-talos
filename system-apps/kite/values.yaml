@@ -1,0 +1,9 @@
+kite:
+  ingress:
+    enabled: true
+    className: "traefik"
+    hosts:
+      - host: weyma-kite.infra.dubyatp.xyz
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
