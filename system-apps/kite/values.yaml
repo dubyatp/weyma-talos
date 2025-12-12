@@ -1,4 +1,5 @@
 kite:
+  host: "https://weyma-kite.infra.dubyatp.xyz"
   ingress:
     enabled: true
     className: "traefik"
