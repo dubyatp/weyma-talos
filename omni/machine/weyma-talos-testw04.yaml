@@ -1,0 +1,25 @@
+kind: Machine
+name: 1006b91a-ecbf-11ea-aed4-046ba1ee3700
+patches:
+  - idOverride: 400-cm-1006b91a-ecbf-11ea-aed4-046ba1ee3700
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-testw04
+          interfaces:
+            - deviceSelector:
+                driver: mlx4_core
+                hardwareAddr: f4:52:14:60:5e:30
+              dhcp: true
+              vlans:
+                - dhcp: false
+                  vlanId: 50
+            - deviceSelector:
+                hardwareAddr: f4:52:14:60:5e:31
+              dhcp: true
+              mtu: 9000
+            - bridge:
+                interfaces:
+                  - eno1.50
+              dhcp: false
+              interface: br0

@@ -1,0 +1,30 @@
+kind: Machine
+systemExtensions:
+  - siderolabs/i915
+  - siderolabs/nut-client
+name: 03000200-0400-0500-0006-000700080009
+install:
+  disk: /dev/sda
+patches:
+  - idOverride: 400-cm-03000200-0400-0500-0006-000700080009
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-testw01
+          interfaces:
+            - deviceSelector:
+                driver: igc
+                hardwareAddr: e8:ff:1e:d5:f8:22
+              dhcp: true
+              vlans:
+                - dhcp: false
+                  vlanId: 50
+            - deviceSelector:
+                hardwareAddr: e8:ff:1e:d5:f8:21
+              dhcp: true
+              mtu: 9000
+            - bridge:
+                interfaces:
+                  - enp2s0.50
+              dhcp: false
+              interface: br0

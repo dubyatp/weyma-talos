@@ -1,0 +1,13 @@
+kind: Machine
+name: 20b4c826-e699-43b3-826d-73eb5173680b
+patches:
+  - idOverride: 400-cm-20b4c826-e699-43b3-826d-73eb5173680b
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-cp02
+          interfaces:
+            - deviceSelector:
+                driver: virtio*
+                hardwareAddr: 00:16:3e:9c:01:27
+              dhcp: true
