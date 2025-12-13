@@ -1,0 +1,25 @@
+kind: Machine
+name: 02c02200-f403-11ef-9372-70f446672600
+patches:
+  - idOverride: 400-cm-02c02200-f403-11ef-9372-70f446672600
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-w02
+          interfaces:
+            - deviceSelector:
+                driver: igc
+                hardwareAddr: e8:ff:1e:d4:b8:89
+              dhcp: true
+              vlans:
+                - dhcp: false
+                  vlanId: 50
+            - deviceSelector:
+                hardwareAddr: e8:ff:1e:d4:b8:8a
+              dhcp: true
+              mtu: 9000
+            - bridge:
+                interfaces:
+                  - enp1s0.50
+              dhcp: false
+              interface: br0

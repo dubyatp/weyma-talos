@@ -1,0 +1,16 @@
+kind: Machine
+systemExtensions:
+  - siderolabs/nut-client
+  - siderolabs/qemu-guest-agent
+name: 5fdea709-56ad-45f2-966d-5e344dbe4fdf
+patches:
+  - idOverride: 400-cm-5fdea709-56ad-45f2-966d-5e344dbe4fdf
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-cp01
+          interfaces:
+            - deviceSelector:
+                driver: virtio*
+                hardwareAddr: bc:24:11:e6:ff:7b
+              dhcp: true
