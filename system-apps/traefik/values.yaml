@@ -84,7 +84,7 @@ traefik:
           routers:
             dispatcharr:
               entryPoints:
-              - web
+              - websecure
               service: dispatcharr
               tls:
                 options: default
