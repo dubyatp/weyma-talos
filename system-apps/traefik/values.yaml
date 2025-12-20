@@ -86,7 +86,7 @@ traefik:
               entryPoints:
               - web
               service: dispatcharr
-              rule: Path(`/`)
+              rule: Host(`dispatcharr.dubyatp.xyz`)
           services:
             dispatcharr:
               loadBalancer:
