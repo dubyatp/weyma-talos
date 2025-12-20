@@ -86,7 +86,9 @@ traefik:
               entryPoints:
               - web
               service: dispatcharr
-              rule: Host(`dispatcharr.dubyatp.xyz`)
+              tls:
+                options: default
+              rule: 'Host(`dispatcharr.dubyatp.xyz`) && PathPrefix(`/`)'
           services:
             dispatcharr:
               loadBalancer:
