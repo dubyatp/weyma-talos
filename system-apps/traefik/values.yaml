@@ -81,6 +81,16 @@ traefik:
                 traefik-real-ip:
                   excludednets:
                     - "1.1.1.1/24"
+          routers:
+            dispatcharr:
+              entryPoints:
+              - web
+              service: dispatcharr
+          services:
+            dispatcharr:
+              loadBalancer:
+                servers:
+                - url: http://10.105.15.20:9191
   service:
     spec:
       externalTrafficPolicy: Local
