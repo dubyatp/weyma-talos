@@ -287,3 +287,199 @@ patches:
                 selector:
                   k8s-app: metrics-server
             name: metrics-lb
+---
+kind: ControlPlane
+machines:
+  - 20b4c826-e699-43b3-826d-73eb5173680b
+  - 30303031-3030-3030-6335-303731636665
+  - 5fdea709-56ad-45f2-966d-5e344dbe4fdf
+---
+kind: Workers
+machines:
+  - 02c02200-f403-11ef-9372-70f446672600
+  - 03000200-0400-0500-0006-000700080009
+  - 1006b91a-ecbf-11ea-aed4-046ba1ee3700
+  - 5f0cd701-0784-4fcc-8e52-3b3304049972
+  - da507021-8912-4337-86a3-94a05bd1cf05
+---
+kind: Machine
+name: 02c02200-f403-11ef-9372-70f446672600
+patches:
+  - idOverride: 400-cm-02c02200-f403-11ef-9372-70f446672600
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-w02
+          interfaces:
+            - deviceSelector:
+                driver: igc
+                hardwareAddr: e8:ff:1e:d4:b8:89
+              dhcp: true
+              vlans:
+                - dhcp: false
+                  vlanId: 50
+            - deviceSelector:
+                hardwareAddr: e8:ff:1e:d4:b8:8a
+              dhcp: true
+              mtu: 9000
+            - bridge:
+                interfaces:
+                  - enp1s0.50
+              dhcp: false
+              interface: br0
+---
+kind: Machine
+systemExtensions:
+  - siderolabs/i915
+  - siderolabs/nut-client
+name: 03000200-0400-0500-0006-000700080009
+install:
+  disk: /dev/sda
+patches:
+  - idOverride: 400-cm-03000200-0400-0500-0006-000700080009
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-testw01
+          interfaces:
+            - deviceSelector:
+                driver: igc
+                hardwareAddr: e8:ff:1e:d5:f8:22
+              dhcp: true
+              vlans:
+                - dhcp: false
+                  vlanId: 50
+            - deviceSelector:
+                hardwareAddr: e8:ff:1e:d5:f8:21
+              dhcp: true
+              mtu: 9000
+            - bridge:
+                interfaces:
+                  - enp2s0.50
+              dhcp: false
+              interface: br0
+---
+kind: Machine
+name: 1006b91a-ecbf-11ea-aed4-046ba1ee3700
+patches:
+  - idOverride: 400-cm-1006b91a-ecbf-11ea-aed4-046ba1ee3700
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-testw04
+          interfaces:
+            - deviceSelector:
+                driver: mlx4_core
+                hardwareAddr: f4:52:14:60:5e:30
+              dhcp: true
+              vlans:
+                - dhcp: false
+                  vlanId: 50
+            - deviceSelector:
+                hardwareAddr: f4:52:14:60:5e:31
+              dhcp: true
+              mtu: 9000
+            - bridge:
+                interfaces:
+                  - eno1.50
+              dhcp: false
+              interface: br0
+---
+kind: Machine
+name: 20b4c826-e699-43b3-826d-73eb5173680b
+patches:
+  - idOverride: 400-cm-20b4c826-e699-43b3-826d-73eb5173680b
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-cp02
+          interfaces:
+            - deviceSelector:
+                driver: virtio*
+                hardwareAddr: 00:16:3e:9c:01:27
+              dhcp: true
+---
+kind: Machine
+systemExtensions:
+  - siderolabs/nut-client
+name: 30303031-3030-3030-6335-303731636665
+patches:
+  - idOverride: 400-cm-30303031-3030-3030-6335-303731636665
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-cp04
+          interfaces:
+            - deviceSelector:
+                hardwareAddr: dc:a6:32:95:0f:cb
+              dhcp: true
+---
+kind: Machine
+name: 5f0cd701-0784-4fcc-8e52-3b3304049972
+patches:
+  - idOverride: 400-cm-5f0cd701-0784-4fcc-8e52-3b3304049972
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-testw05
+          interfaces:
+            - deviceSelector:
+                hardwareAddr: 00:16:3e:b3:dd:f8
+              dhcp: true
+            - deviceSelector:
+                hardwareAddr: 00:16:3e:e5:79:0a
+              dhcp: true
+              mtu: 9000
+            - deviceSelector:
+                hardwareAddr: 00:16:3e:6b:1c:1d
+              dhcp: false
+            - bridge:
+                interfaces:
+                  - enx00163e6b1c1d
+              dhcp: false
+              interface: br0
+---
+kind: Machine
+systemExtensions:
+  - siderolabs/nut-client
+  - siderolabs/qemu-guest-agent
+name: 5fdea709-56ad-45f2-966d-5e344dbe4fdf
+patches:
+  - idOverride: 400-cm-5fdea709-56ad-45f2-966d-5e344dbe4fdf
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-cp01
+          interfaces:
+            - deviceSelector:
+                driver: virtio*
+                hardwareAddr: bc:24:11:e6:ff:7b
+              dhcp: true
+---
+kind: Machine
+name: da507021-8912-4337-86a3-94a05bd1cf05
+patches:
+  - idOverride: 400-cm-da507021-8912-4337-86a3-94a05bd1cf05
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-w03
+          interfaces:
+            - deviceSelector:
+                driver: virtio*
+                hardwareAddr: bc:24:11:be:6c:08
+              dhcp: true
+            - deviceSelector:
+                driver: virtio*
+                hardwareAddr: bc:24:11:f8:4a:92
+              dhcp: true
+              mtu: 8996
+            - deviceSelector:
+                driver: virtio*
+                hardwareAddr: bc:24:11:93:02:0e
+              dhcp: false
+            - bridge:
+                interfaces:
+                  - enxbc241193020e
+              dhcp: false
+              interface: br0
