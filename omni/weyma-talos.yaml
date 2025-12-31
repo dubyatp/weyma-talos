@@ -291,7 +291,6 @@ patches:
 kind: ControlPlane
 machines:
   - 20b4c826-e699-43b3-826d-73eb5173680b
-  - 30303031-3030-3030-6335-303731636665
   - 5fdea709-56ad-45f2-966d-5e344dbe4fdf
 ---
 kind: Workers
@@ -306,6 +305,8 @@ kind: Machine
 name: 02c02200-f403-11ef-9372-70f446672600
 patches:
   - idOverride: 400-cm-02c02200-f403-11ef-9372-70f446672600
+    annotations:
+      name: ""
     inline:
       machine:
         network:
@@ -329,14 +330,11 @@ patches:
               interface: br0
 ---
 kind: Machine
-systemExtensions:
-  - siderolabs/i915
-  - siderolabs/nut-client
 name: 03000200-0400-0500-0006-000700080009
-install:
-  disk: /dev/sda
 patches:
   - idOverride: 400-cm-03000200-0400-0500-0006-000700080009
+    annotations:
+      name: ""
     inline:
       machine:
         network:
@@ -363,6 +361,8 @@ kind: Machine
 name: 1006b91a-ecbf-11ea-aed4-046ba1ee3700
 patches:
   - idOverride: 400-cm-1006b91a-ecbf-11ea-aed4-046ba1ee3700
+    annotations:
+      name: ""
     inline:
       machine:
         network:
@@ -389,6 +389,8 @@ kind: Machine
 name: 20b4c826-e699-43b3-826d-73eb5173680b
 patches:
   - idOverride: 400-cm-20b4c826-e699-43b3-826d-73eb5173680b
+    annotations:
+      name: ""
     inline:
       machine:
         network:
@@ -400,24 +402,11 @@ patches:
               dhcp: true
 ---
 kind: Machine
-systemExtensions:
-  - siderolabs/nut-client
-name: 30303031-3030-3030-6335-303731636665
-patches:
-  - idOverride: 400-cm-30303031-3030-3030-6335-303731636665
-    inline:
-      machine:
-        network:
-          hostname: weyma-talos-cp04
-          interfaces:
-            - deviceSelector:
-                hardwareAddr: dc:a6:32:95:0f:cb
-              dhcp: true
----
-kind: Machine
 name: 5f0cd701-0784-4fcc-8e52-3b3304049972
 patches:
   - idOverride: 400-cm-5f0cd701-0784-4fcc-8e52-3b3304049972
+    annotations:
+      name: ""
     inline:
       machine:
         network:
@@ -446,6 +435,8 @@ systemExtensions:
 name: 5fdea709-56ad-45f2-966d-5e344dbe4fdf
 patches:
   - idOverride: 400-cm-5fdea709-56ad-45f2-966d-5e344dbe4fdf
+    annotations:
+      name: ""
     inline:
       machine:
         network:
@@ -460,6 +451,8 @@ kind: Machine
 name: da507021-8912-4337-86a3-94a05bd1cf05
 patches:
   - idOverride: 400-cm-da507021-8912-4337-86a3-94a05bd1cf05
+    annotations:
+      name: ""
     inline:
       machine:
         network:
