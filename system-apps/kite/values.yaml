@@ -16,3 +16,5 @@ kite:
         paths:
           - path: /
             pathType: ImplementationSpecific
+  podAnnotations:
+    backup.velero.io/backup-volumes: kite-storage
