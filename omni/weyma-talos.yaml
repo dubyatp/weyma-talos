@@ -292,6 +292,7 @@ kind: ControlPlane
 machines:
   - 20b4c826-e699-43b3-826d-73eb5173680b
   - 5fdea709-56ad-45f2-966d-5e344dbe4fdf
+  - 30303031-3030-3030-6335-303731636665
 ---
 kind: Workers
 machines:
@@ -384,6 +385,19 @@ patches:
                   - eno1.50
               dhcp: false
               interface: br0
+---
+kind: Machine
+name: 30303031-3030-3030-6335-303731636665
+patches:
+  - idOverride: 400-cm-30303031-3030-3030-6335-303731636665
+    inline:
+      machine:
+        network:
+          hostname: weyma-talos-cp04
+          interfaces:
+            - deviceSelector:
+                hardwareAddr: dc:a6:32:95:0f:cb
+              dhcp: true
 ---
 kind: Machine
 name: 20b4c826-e699-43b3-826d-73eb5173680b
