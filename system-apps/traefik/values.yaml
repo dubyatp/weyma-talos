@@ -15,8 +15,6 @@ traefik:
       exposedPort: 22
       expose:
         default: true
-      tls:
-        passthrough: true
   metrics:
     prometheus:
       service:
