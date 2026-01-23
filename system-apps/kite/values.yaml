@@ -1,5 +1,7 @@
 kite:
   host: "https://weyma-kite.infra.dubyatp.xyz"
+  deploymentStrategy:
+    type: Recreate
   secret:
     create: false
     existingSecret: kite-secret
