@@ -4,11 +4,12 @@ traefik:
     - --entryPoints.websecure.transport.respondingTimeouts.readTimeout=0
   ports:
     web:
-      redirections:
-        entryPoint:
-          to: websecure
-          scheme: https
-          permanent: true
+      http:
+        redirections:
+          entryPoint:
+            to: websecure
+            scheme: https
+            permanent: true
     gitssh:
       port: 2222
       exposedPort: 22
