@@ -128,18 +128,30 @@ argo-cd:
           remoteRef:
             key: argo-cd
             property: webhook.gitea.secret
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: admin.password
           remoteRef:
             key: argo-cd
             property: admin.password
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: admin.passwordMtime
           remoteRef:
             key: argo-cd
             property: admin.passwordMtime
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: dex.authentik.clientSecret
           remoteRef:
             key: argo-cd
             property: dex.authentik.clientSecret
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
     - apiVersion: external-secrets.io/v1
       kind: ExternalSecret
       metadata:
@@ -160,14 +172,23 @@ argo-cd:
           remoteRef:
             key: argo-cd-git
             property: sshPrivateKey
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: type
           remoteRef:
             key: argo-cd-git
             property: type
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: url
           remoteRef:
             key: argo-cd-git
             property: url.core-apps
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
     - apiVersion: external-secrets.io/v1
       kind: ExternalSecret
       metadata:
@@ -188,14 +209,23 @@ argo-cd:
           remoteRef:
             key: argo-cd-git
             property: sshPrivateKey
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: type
           remoteRef:
             key: argo-cd-git
             property: type
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: url
           remoteRef:
             key: argo-cd-git
             property: url.weyma-talos
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
     - apiVersion: external-secrets.io/v1
       kind: ExternalSecret
       metadata:
@@ -216,14 +246,23 @@ argo-cd:
           remoteRef:
             key: argo-cd-git
             property: sshPrivateKey
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: type
           remoteRef:
             key: argo-cd-git
             property: type
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: url
           remoteRef:
             key: argo-cd-git
             property: url.williamp-sites
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
     - apiVersion: external-secrets.io/v1
       kind: ExternalSecret
       metadata:
@@ -244,11 +283,20 @@ argo-cd:
           remoteRef:
             key: argo-cd-git
             property: sshPrivateKey
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: type
           remoteRef:
             key: argo-cd-git
             property: type
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
         - secretKey: url
           remoteRef:
             key: argo-cd-git
             property: url.db-operators
+            conversionStrategy: Default
+            decodingStrategy: None
+            metadataPolicy: None
