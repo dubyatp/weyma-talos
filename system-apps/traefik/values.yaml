@@ -134,6 +134,10 @@ traefik:
     metadata:
       name: traefik-local
     spec:
+      sessionAffinity: ClientIP
+      sessionAffinityConfig:
+        clientIP:
+          timeoutSeconds: 3600
       selector:
         app.kubernetes.io/name: traefik
         app.kubernetes.io/instance: traefik-traefik
