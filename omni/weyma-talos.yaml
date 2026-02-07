@@ -52,7 +52,7 @@ patches:
             bind-address: 0.0.0.0
         proxy:
           extraArgs:
-            proxy-mode: iptables
+            proxy-mode: ipvs
             metrics-bind-address: 0.0.0.0:10249
         scheduler:
           extraArgs:
