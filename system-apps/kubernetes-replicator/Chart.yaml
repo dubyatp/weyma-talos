@@ -24,5 +24,5 @@ appVersion: "1.0"
 
 dependencies:
 - name: kubernetes-replicator
-  version: 2.12.2
+  version: 2.12.3
   repository: https://helm.mittwald.de
