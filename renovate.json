@@ -15,10 +15,9 @@
   ],
   "packageRules": [
     {
-      "description": "Automerge patch updates",
-      "matchUpdateTypes": ["patch"],
-      "matchCurrentVersion": "!/^0/",
-      "automerge": true
+      "description": "Consolidate patch and minor updates to one PR",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all-minor-patch-updates"
     },
     {
       "description": "Rook Ceph - auto-update minor and patch versions only",
