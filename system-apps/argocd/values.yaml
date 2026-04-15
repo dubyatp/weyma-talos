@@ -286,6 +286,7 @@ argo-cd:
             conversionStrategy: Default
             decodingStrategy: None
             metadataPolicy: None
+            nullBytePolicy: Ignore
         - secretKey: type
           remoteRef:
             key: argo-cd-git
@@ -293,6 +294,7 @@ argo-cd:
             conversionStrategy: Default
             decodingStrategy: None
             metadataPolicy: None
+            nullBytePolicy: Ignore
         - secretKey: url
           remoteRef:
             key: argo-cd-git
@@ -300,3 +302,4 @@ argo-cd:
             conversionStrategy: Default
             decodingStrategy: None
             metadataPolicy: None
+            nullBytePolicy: Ignore
