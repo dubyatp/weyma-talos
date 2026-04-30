@@ -332,7 +332,7 @@ kind: ControlPlane
 machines:
   - 20b4c826-e699-43b3-826d-73eb5173680b
   - 5fdea709-56ad-45f2-966d-5e344dbe4fdf
-  - 30303031-3030-3030-6335-303731636665
+  - 30303031-3030-3030-6335-303731636600
 ---
 kind: Workers
 machines:
@@ -427,9 +427,9 @@ patches:
               interface: br0
 ---
 kind: Machine
-name: 30303031-3030-3030-6335-303731636665
+name: 30303031-3030-3030-6335-303731636600
 patches:
-  - idOverride: 400-cm-30303031-3030-3030-6335-303731636665
+  - idOverride: 400-cm-30303031-3030-3030-6335-303731636600
     inline:
       machine:
         network:
