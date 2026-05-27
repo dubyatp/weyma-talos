@@ -1,4 +1,6 @@
 metallb:
+  frrk8s:
+    enabled: false
   prometheus:
     rbacPrometheus: false
     podMonitor:
