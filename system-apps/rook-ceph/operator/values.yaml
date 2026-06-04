@@ -1,11 +1,12 @@
 monitoring:
   enabled: true
 ceph-csi-drivers:
-  rbd:
-    name: rook-ceph.rbd.csi.ceph.com
-  cephfs:
-    name: rook-ceph.cephfs.csi.ceph.com
-  nvmeof:
-    enabled: false
-  nfs:
-    enabled: false
+  drivers:
+    rbd:
+      name: rook-ceph.rbd.csi.ceph.com
+    cephfs:
+      name: rook-ceph.cephfs.csi.ceph.com
+    nvmeof:
+      enabled: false
+    nfs:
+      enabled: false
