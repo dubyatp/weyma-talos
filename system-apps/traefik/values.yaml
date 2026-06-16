@@ -72,7 +72,7 @@ traefik:
     file:
       enabled: true
       watch: true
-      content: |
+      content:
         http:
           middlewares:
             cloudflarewarp:
