@@ -1,0 +1,14 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: ReferenceGrant
+metadata:
+  name: test-williamtpeebles-com
+  namespace: cert-manager
+spec:
+  from:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    namespace: williamtpeebles-com
+  to:
+  - group: ""
+    kind: Secret
+    name: cert-williamtpeebles-com
