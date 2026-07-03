@@ -69,6 +69,8 @@ traefik:
     dashboard:
       enabled: true
   providers:
+    kubernetesGateway:
+      enabled: true
     file:
       enabled: true
       watch: true
