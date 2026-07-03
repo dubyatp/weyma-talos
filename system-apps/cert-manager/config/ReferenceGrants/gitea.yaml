@@ -1,7 +1,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: ReferenceGrant
 metadata:
-  name: test-gitea
+  name: gitea
   namespace: cert-manager
 spec:
   from:
