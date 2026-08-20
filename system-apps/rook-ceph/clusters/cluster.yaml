@@ -33,10 +33,12 @@ spec:
         keyGeneration: 2 # must be greater than the current keyGeneration
       csi:
         keyRotationPolicy: KeyGeneration
-        keyGeneration: 2 # must be greater than the current keyGeneration
+        keyGeneration: 3 # must be greater than the current keyGeneration
+        keyType: aes # Talos kernel 6.18 / cephcsi v3.17.0 don't support aes256k yet
       rbdMirrorPeer:
         keyRotationPolicy: KeyGeneration
-        keyGeneration: 2 # must be greater than the current keyGeneration
+        keyGeneration: 3 # must be greater than the current keyGeneration
+        keyType: aes # Talos kernel 6.18 / cephcsi v3.17.0 don't support aes256k yet
   # The path on the host where configuration files will be persisted. Must be specified. If there are multiple clusters, the directory must be unique for each cluster.
   # Important: if you reinstall the cluster, make sure you delete this directory from each host or else the mons will fail to start on the new cluster.
   # In Minikube, the '/data' directory is configured to persist across reboots. Use "/data/rook" in Minikube environment.
