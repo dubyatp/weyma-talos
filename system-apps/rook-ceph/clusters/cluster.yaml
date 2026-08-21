@@ -371,3 +371,12 @@ spec:
         disabled: false
       osd:
         disabled: false
+    muteHealthWarning: # Remove these after Talos uses 7.0+ kernel
+      AUTH_INSECURE_ROTATING_SERVICE_KEY_TYPE:
+        policy: mute
+      AUTH_INSECURE_CLIENT_KEY_TYPE:
+        policy: mute
+      AUTH_INSECURE_KEYS_ALLOWED:
+        policy: mute
+      AUTH_INSECURE_KEYS_CREATABLE:
+        policy: mute
