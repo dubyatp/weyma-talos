@@ -3,7 +3,7 @@ name: weyma-talos
 kubernetes:
   version: v1.35.4
 talos:
-  version: v1.12.7
+  version: v1.12.11
 features:
   backupConfiguration:
     interval: 6h0m0s
@@ -310,7 +310,7 @@ patches:
                           }
 
                           rewrite name git.dubyatp.xyz traefik-local.traefik.svc.cluster.local
-                          
+
                           forward . /etc/resolv.conf {
                             max_concurrent 1000
                           }
