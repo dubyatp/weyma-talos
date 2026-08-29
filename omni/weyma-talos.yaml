@@ -3,7 +3,7 @@ name: weyma-talos
 kubernetes:
   version: v1.35.8
 talos:
-  version: v1.12.11
+  version: v1.13.9
 features:
   backupConfiguration:
     interval: 6h0m0s
