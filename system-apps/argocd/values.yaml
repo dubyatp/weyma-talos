@@ -27,6 +27,8 @@ argo-cd:
       resource.customizations.ignoreDifferences.Secret: |
         jsonPointers:
           - /data
+      controller.repo.server.timeout.seconds: "300"
+      server.repo.server.timeout.seconds: "300"
     params:
       server.insecure: true
     ssh:
