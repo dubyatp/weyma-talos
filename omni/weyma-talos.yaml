@@ -1,7 +1,7 @@
 kind: Cluster
 name: weyma-talos
 kubernetes:
-  version: v1.36.4
+  version: v1.36.7
 talos:
   version: v1.13.13
 features:
